@@ -29,3 +29,8 @@ specifi what has to be patched in the URL
 provide the required parameters in the BODY
 
 example => `PATCH http://localhost:3000/tasks/a00751a7-2f42-4a82-9d00-e46fcc5ceea7/status`
+
+==> PIPES
+operates on the arguments to be processed by the route handlers before they are called
+they can apply validation and transformation to the data
+they can be applied to a global level, handler level, or parameter level
