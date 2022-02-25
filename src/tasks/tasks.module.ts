@@ -1,4 +1,6 @@
 import { Module } from '@nestjs/common';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { TasksRepository } from './dto/tasks.repository';
 import { TasksController } from './tasks.controller';
 import { TasksService } from './tasks.service';
 
@@ -10,6 +12,8 @@ so that allows the tasks service to be injected and then used in the tasks contr
 
 @Module({
   controllers: [TasksController],
-  providers: [TasksService]
+  providers: [TasksService],
+  // imports, injects dependencies to be able to use them anywhere inside the current module
+  imports: [TypeOrmModule.forFeature([TasksRepository])]
 })
-export class TasksModule {}
+export class TasksModule { }
