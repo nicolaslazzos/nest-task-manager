@@ -10,4 +10,5 @@ export const configValidationSchema = Joi.object({
   POSTGRES_PASSWORD: Joi.string().required(),
   POSTGRES_DATABASE: Joi.string().required(),
   JWT_SECRET: Joi.string().required(),
+  PORT: Joi.number().default(3000)
 });

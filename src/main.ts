@@ -8,13 +8,15 @@ async function bootstrap() {
 
   const app = await NestFactory.create(AppModule);
 
+  app.enableCors();
+
   // tells nest to execute a validation pipe whenever he encounters a validation decorator
   app.useGlobalPipes(new ValidationPipe());
 
   // tells nest to use the transformation interceptor
   app.useGlobalInterceptors(new TransformInterceptor());
 
-  const PORT = 3000;
+  const PORT = process.env.PORT;
 
   await app.listen(PORT);
 
